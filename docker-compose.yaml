@@ -1,0 +1,12 @@
+services:
+  kali-gui:
+    image: kali-gui
+    ports:
+      - "5901:5901"
+    container_name: kali-gui
+    # variables are needed during runtime, not during build, we can use environement as well
+    env_file:
+      - .env
+    environment:
+      - USER=kaliuser
+    restart: unless-stopped
